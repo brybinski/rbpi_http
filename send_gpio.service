@@ -1,0 +1,13 @@
+[Unit]
+Description=Send GPIO pins data via HTTP
+Wants=network-online.target
+After=network-online.target nss-lookup.target
+
+[Service]
+Restart=on-failure
+RestartSec=5s
+
+ExecStart=./send_data.py
+
+[Install]
+WantedBy=multi-user.target
